@@ -26,7 +26,7 @@ public class UserRepositoryTest {
 	@Autowired
 	UserRepository repository;
 	
-	// Instruções que serão executadas antes dos testes...
+	/* Instruções que serão executadas antes dos testes... */
 	@Before
 	public void setUp() {
 		User u = new User();
