@@ -22,6 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wallet.dto.UserDTO;
 import com.wallet.entity.User;
 import com.wallet.service.UserService;
+import com.wallet.util.enums.RoleEnum;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -52,6 +53,7 @@ public class UserControllerTest {
 		.andExpect(jsonPath("$.data.id").value(ID))
 		.andExpect(jsonPath("$.data.email").value(EMAIL))
 		.andExpect(jsonPath("$.data.name").value(NAME))
+		.andExpect(jsonPath("$.data.role").value(RoleEnum.ROLE_ADMIN.toString()))
 		.andExpect(jsonPath("$.data.password").doesNotExist());
 	}
 	
@@ -70,6 +72,7 @@ public class UserControllerTest {
 		u.setEmail(EMAIL);
 		u.setName(NAME);
 		u.setPassword(PASSWORD);
+		u.setRole(RoleEnum.ROLE_ADMIN);
 		
 		return u;
 	}
@@ -80,6 +83,7 @@ public class UserControllerTest {
 		dto.setEmail(email);
 		dto.setName(name);
 		dto.setPassword(password);
+		dto.setRole(RoleEnum.ROLE_ADMIN.toString());
 		
 		ObjectMapper mapper = new ObjectMapper();
 		return mapper.writeValueAsString(dto);

@@ -74,7 +74,6 @@ public class WalletItemController {
 		
 		Response<Page<WalletItemDTO>> response = new Response<Page<WalletItemDTO>>();
 		
-		
 		Optional<UserWallet> uw = userWalletService.findByUsersIdAndWalletId(Util.getAuthenticatedUserId(), wallet);
 		
 		if (!uw.isPresent()) {

@@ -24,8 +24,8 @@ public class Util {
 			if (user.isPresent()) {
 				return user.get().getId();
 			}else {
-				return 8L;
-				//return null;
+				//return 8L;
+				return null;
 			}
 		}catch (Exception e) {
 			return null;
